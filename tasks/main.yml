@@ -5,10 +5,10 @@
 - import_tasks: configure.yml
 
 - import_tasks: configure-others.yml
-  tags: others
+  tags: bootstrap
 
 - import_tasks: configure-bootstrap.yml
-  tags: bootstrap
+  tags: others
 
 - import_tasks: configure-others.yml
   when:
@@ -23,7 +23,7 @@
 - import_tasks: configure-etcd.yml
   when:
     - etcd == "true"
-  tags: others
+  tags: bootstrap
 
 - import_tasks: configure-master-node.yml
   when:
@@ -33,7 +33,7 @@
 - import_tasks: deploy.yml
 
 - import_tasks: post-conf-master-bootstrap.yml
-  tags: bootstrap
+  tags: others
   when:
     - master == "true"
 

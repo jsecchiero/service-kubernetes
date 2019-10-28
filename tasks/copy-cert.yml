@@ -19,7 +19,7 @@
     - ca.pem
   when:
     - etcd == "true"
-  tags: others
+  tags: bootstrap
 
 - name: copy-cert | create kubernetes folder
   file:
@@ -51,4 +51,4 @@
     - front-proxy-ca.key
   when:
     - master == "true"
-  tags: others
+  tags: bootstrap
